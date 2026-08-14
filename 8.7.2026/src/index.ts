@@ -106,14 +106,12 @@ const users: User[] = [
 
 function firstFilter(users: User[]): User[] {
   const thirtish = users.filter((treintones) => treintones.age >= 30);
-  return thirtish;
 }
 
 // Create an array containing only female users.
 
 function onlyFemale(users: User[]): User[] {
   const women = users.filter((mujer) => mujer.gender === "f");
-  return women;
 }
 
 // Create an array containing users with the "elite" category.
@@ -170,25 +168,25 @@ function justTheAge(users: User[]): number[] {
 
 // SOME
 // Check whether at least one user is younger than 20.
-function existAtLeastOneTw(users: User[]): string{
+function existAtLeastOneTw(users: User[]): boolean {
   const theFirstAnswer = users.some((losVeinte)=> losVeinte.age >= 20);
-  return "Hay al menos 1"
+return theFirstAnswer
 }
 
 // Check whether at least one user has the "ultimate" category.
-function ultimateCategory(users: User[]): string {
+function ultimateCategory(users: User[]): boolean {
   const isUltimate = users.some(
-    (categoria) => (categoria.category = "ultimate")
+    (categoria) => categoria.category = "ultimate"
   );
-  return "Hay al menos un ultimate";
+  return isUltimate
 }
 
 // Check whether at least one user subscribed during 2021.
-function isSubscribed(users: User[]): string {
+function isSubscribed(users: User[]): boolean {
   const subscribedInTwentyOne = users.some(
     (veintiuno) => veintiuno.subscriptionDate.slice(0, 4) === "2021"
   );
-  return "Hay al menos uno que se suscribio en 2021";
+  return subscribedInTwentyOne;
 }
 // Check whether at least one user has something inside their subsidiary array.
 function theSubsidiaryArray(users: User[]): string {
