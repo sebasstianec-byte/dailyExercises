@@ -56,23 +56,44 @@ type studentFinals = {
   passed: boolean;
 };
 
-function getStudentSummary(students: studentResults): studentFinals {
-  // PROMEDIO DE NOTAS
+// function getStudentSummary(students: studentResults): studentFinals {
+//   // PROMEDIO DE NOTAS
+//   let gradeSum: number = 0;
+//   for (let i = 0; i < students.grades.length; i++) {
+//     gradeSum = gradeSum + students.grades[i];
+//   }
+//   const average = gradeSum / students.grades.length;
+  
+//   // PASO O NO PASO
+//  const passed = average >= 3;
+  
+//   // REGRESO EL FINAL
+//   return {
+//    name: students.name,
+//    age: students.age,
+//    average: average,
+//    passed: passed
+//   }
+// }
+  
+function getStudentSummary(students: studentResults): studentFinals{
+ // PROMEDIO DE NOTAS
   let gradeSum: number = 0;
-  for (let i = 0; i < students.grades.length; i++) {
-    gradeSum = gradeSum + students.grades[i];
-  }
+  gradeSum = students.grades.reduce((acumulado, nota)=>{
+return acumulado + nota;
+  }, 0);
   const average = gradeSum / students.grades.length;
-  
-  // PASO O NO PASO
- const passed = average >= 3;
-  
-  // REGRESO EL FINAL
-  return {
-   name: students.name,
-   age: students.age,
-   average: average,
-   passed: passed
-  }
+
+// PASO O NO PASO
+const passed = average >= 3;
+
+// REGRESO EL FINAL
+return {
+  name: students.name,
+  age: students.age,
+  average: average,
+  passed: passed
 }
-  
+}
+
+
